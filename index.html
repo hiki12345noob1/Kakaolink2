@@ -1,0 +1,65 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>카톡 공유</title>
+<script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+</head>
+<body>
+    <input type="button" onClick="sendLinkCustom();" value="Custom"/>
+    <input type="button" onClick="sendLinkDefault();" value="Default"/>
+
+<script type="text/javascript">
+    function sendLinkCustom() {
+        Kakao.init("b7687a89209f07ab24f5430b7c083732");
+        Kakao.Link.sendCustom({
+            templateId: 117094
+        });
+    }
+</script>
+
+<script>
+try {
+  function sendLinkDefault() {
+    Kakao.init('372573dd76b819fbb628e8f73c6539bb')
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '오픈프로필 만들기',
+        description: '',
+        imageUrl:
+          'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+        link: {
+          mobileWebUrl: 'directurl.kro.kr',
+          webUrl: 'directurl.kro.kr',
+        },
+      },
+      social: {
+        likeCount: 286,
+        commentCount: 45,
+        sharedCount: 845,
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'directurl.kro.kr?url=kakaoopen://card/create',
+            webUrl: 'directurl.kro.kr?url=kakaoopen://card/create',
+          },
+        },
+        {
+          title: '앱으로 보기',
+          link: {
+            mobileWebUrl: '?url=kakaoopen://card/create',
+            webUrl: 'directurl.kro.kr?url=kakaoopen://card/create',
+          },
+        },
+      ],
+    })
+  }
+; window.kakaoDemoCallback && window.kakaoDemoCallback() }
+catch(e) { window.kakaoDemoException && window.kakaoDemoException(e) }
+</script>
+   
+</body>
+</html>
